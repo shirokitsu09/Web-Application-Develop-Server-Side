@@ -96,16 +96,14 @@ app.post('/logs', async (req, res) => {
             drone_id: '65010413',
             drone_name: 'Thanapol Somrit'
         }
-        // const data = req.body
-        await axios("https://app-tracking.pockethost.io/api/collections/drone_logs/records",
+        console.log(data)
+        await axios.post("https://app-tracking.pockethost.io/api/collections/drone_logs/records",
+            data,
             {
-                method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
-                },
-                // body: JSON.stringify(data)
-                // data
-            }, data).then(res => {
+                }
+            }).then(res => {
                 res.status(200).json({
                     status: "success",
                     message: "add logs successful",
